@@ -1,17 +1,17 @@
 class DrinksController < ApplicationController
 
   def index
-    @coffees = Drink.all
+    @drinks = Drink.all
   end
 
-  # GET /coffees/1
-  # GET /coffees/1.json
+  # GET /drink/1
+  # GET /drink/1.json
   def show
-    @coffee = Drink.find(params[:id])
+    @drink = Drink.find(params[:id])
   end
 
-  # GET /coffees/new
+  # GET /drinks/new
   def new
-    @coffee = Drink.new
+    @drink = Drink.new
   end
 end
