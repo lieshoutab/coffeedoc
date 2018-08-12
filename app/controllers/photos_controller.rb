@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   def index
-    @photos = Photo.where(drink_id: params[:drink_id])
+    @drink = Drink.find(params[:drink_id])
+    @photos = Photo.where(drink: @drink)
   end
 
   def new
