@@ -15,6 +15,21 @@ class DrinksController < ApplicationController
     @drink = Drink.new
   end
 
+  def edit
+    @drink = Drink.find(params[:id])
+  end
+
+  def update
+    @drink = Drink.find(params[:id])
+      if @drink.update(drink_params)
+       redirect_to drinks_path, notice: 'Drink was successfully updated.'
+
+      else
+       render :edit
+
+      end
+    end
+
 def create
   @drink = Drink.new(drink_params)
 
@@ -22,6 +37,7 @@ def create
       if @drink.save
         redirect_to drinks_path, notice: 'Coffee was successfully created.'
       end
+
 end
 
 
