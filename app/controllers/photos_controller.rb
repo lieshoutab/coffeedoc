@@ -5,12 +5,13 @@ class PhotosController < ApplicationController
   end
 
   def new
-    @photo = Photo.new(drink_id: params[:drink_id])
+    @drink = Drink.find(params[:drink_id])
+    @photo = Photo.new(drink: @drink)
   end
 
   def create
     drink = Drink.find(params[:drink_id])
-    photo = Photo.new(drink: drink, photo_params)
+    photo = Photo.new(photo_params.merge(drink: drink))
 
     if photo.save
       redirect_to drink_photos_path(drink), notice: 'Photo was added.'

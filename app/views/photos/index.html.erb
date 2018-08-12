@@ -1,5 +1,6 @@
 <h1>Photos</h1>
-<%= link_to 'Add Photo', new_drink_photo_path(@drink)%>
+<%= link_to 'Add Photo', new_drink_photo_path(@drink) %>
+<%= link_to 'Home', drinks_path %>
 <div>
   <% @photos.each do |photo| %>
   <img src="<%= photo.url %>" >
